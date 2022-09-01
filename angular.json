@@ -3,5 +3,243 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "Client-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/client-app",
+      "sourceRoot": "projects/client-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/client-app",
+            "index": "projects/client-app/src/index.html",
+            "main": "projects/client-app/src/main.ts",
+            "polyfills": "projects/client-app/src/polyfills.ts",
+            "tsConfig": "projects/client-app/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/client-app/src/favicon.ico",
+              "projects/client-app/src/assets"
+            ],
+            "styles": [
+              "projects/client-app/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/client-app/src/environments/environment.ts",
+                  "with": "projects/client-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Client-app:build:production"
+            },
+            "development": {
+              "browserTarget": "Client-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Client-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/client-app/src/test.ts",
+            "polyfills": "projects/client-app/src/polyfills.ts",
+            "tsConfig": "projects/client-app/tsconfig.spec.json",
+            "karmaConfig": "projects/client-app/karma.conf.js",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/client-app/src/favicon.ico",
+              "projects/client-app/src/assets"
+            ],
+            "styles": [
+              "projects/client-app/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "Shared-Libraries": {
+      "projectType": "library",
+      "root": "projects/shared-libraries",
+      "sourceRoot": "projects/shared-libraries/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/shared-libraries/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/shared-libraries/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/shared-libraries/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/shared-libraries/src/test.ts",
+            "tsConfig": "projects/shared-libraries/tsconfig.spec.json",
+            "karmaConfig": "projects/shared-libraries/karma.conf.js"
+          }
+        }
+      }
+    },
+    "Admin-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "sass"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/admin-app",
+      "sourceRoot": "projects/admin-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/admin-app",
+            "index": "projects/admin-app/src/index.html",
+            "main": "projects/admin-app/src/main.ts",
+            "polyfills": "projects/admin-app/src/polyfills.ts",
+            "tsConfig": "projects/admin-app/tsconfig.app.json",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/admin-app/src/favicon.ico",
+              "projects/admin-app/src/assets"
+            ],
+            "styles": [
+              "projects/admin-app/src/styles.sass"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/admin-app/src/environments/environment.ts",
+                  "with": "projects/admin-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "Admin-app:build:production"
+            },
+            "development": {
+              "browserTarget": "Admin-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "Admin-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/admin-app/src/test.ts",
+            "polyfills": "projects/admin-app/src/polyfills.ts",
+            "tsConfig": "projects/admin-app/tsconfig.spec.json",
+            "karmaConfig": "projects/admin-app/karma.conf.js",
+            "inlineStyleLanguage": "sass",
+            "assets": [
+              "projects/admin-app/src/favicon.ico",
+              "projects/admin-app/src/assets"
+            ],
+            "styles": [
+              "projects/admin-app/src/styles.sass"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "Client-app"
 }
