@@ -1,0 +1,28 @@
+<div class="container-fluid" style="height: 100vh;">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-4 bg-light wrapper">
+            <div class="row justify-content-center">
+                <div class="col-6 d-flex justify-content-center">
+                    <div class="logo">
+                        <img src="assets/images/logo.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 name">سامانه بهره کار</div>
+            <form class="p-3 mt-3" [formGroup]="form" (ngSubmit)="submit()">
+                <div class="form-field d-flex align-items-center">
+                    <label for="userName" class="far fa-user"></label>
+                    <input formControlName="userName" type="text" id="userName" placeholder="نام کابری">
+                </div>
+                <div class="form-field d-flex align-items-center">
+                    <label for="pwd" class="fas fa-key"></label>
+                    <input type="password" formControlName="password" id="pwd" placeholder="گذرواژه">
+                </div>
+                <button class="btn mt-3" type="submit">ورود</button>
+            </form>
+            <div class="text-center fs-6">
+                <a href="#">فراموشی رمز عبور</a>
+            </div>
+
+        </div>
+    </div>

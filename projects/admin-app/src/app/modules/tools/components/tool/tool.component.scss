@@ -1,0 +1,47 @@
+$light-color : #E0E1DD;
+$inactive-color: #778DA9;
+$active-fan-color : #079992;
+$active-lamp-color: #EDAE49;
+@keyframes example {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* The element to apply the animation to */
+.active-tool {
+    width: 100px;
+    height: 100px;
+    color: $active-lamp-color;
+}
+
+.active-fan {
+    width: 100px;
+    height: 100px;
+    transform: rotate(0deg);
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    color:$active-fan-color;
+}
+
+.icon-frame {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tool{
+background-color: $light-color ;
+}
+
+.inactive{
+  color: $inactive-color;
+}

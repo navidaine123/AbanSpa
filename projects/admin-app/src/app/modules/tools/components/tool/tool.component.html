@@ -1,0 +1,16 @@
+<div class="h-100 border rounded tool mx-2">
+  <div class="col-12 h-75 d-flex justify-content-center align-items-center border-bottom">
+    <div class="icon-frame" [ngClass]="active_class">
+      <i *ngIf="type[1] == 'f'" class="fa-solid fa-fan font-size-6" [ngClass]="active == true?'active':'inactive'"></i>
+      <i *ngIf="type[1] == 't'" class="fa-solid fa-lightbulb font-size-6"
+        [ngClass]="active == true?'active':'inactive'"></i>
+    </div>
+  </div>
+  <div class="col-12 text-center h-25">
+    <strong>سیستم تهویه</strong>
+    <div class="form-check form-switch d-flex justify-content-center align-items-center">
+      <input (change)="checked($event)" [checked]="_active" class="form-check-input cursor-pointer" type="checkbox"
+        id="flexSwitchCheckDefault">
+    </div>
+  </div>
+</div>
