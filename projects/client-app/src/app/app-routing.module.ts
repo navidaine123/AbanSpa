@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'projects/shared-libraries/src/lib/services/gaurds/auth.guard';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   canActivate: [AuthGuard],
-  //   loadChildren: () =>
-  //     import("./modules/layout/layout.module").then((m) => m.LayoutModule)
-  // },
+  {
+    path: '',
+    // canActivate: [AuthGuard],
+    loadChildren: () =>
+      import("./modules/layout/layout.module").then((m) => m.LayoutModule)
+  },
   {
     path: 'login',
     loadChildren: () =>

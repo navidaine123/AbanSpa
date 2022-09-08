@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <app-header class="row"></app-header>
+    <div class="row h-panel">
+        <div class=" h-100 animate-drawer position-relative" [ngClass]="showDrawer == true ? 'col-10':'col-12'">
+            <div class="py-2 px-3 content h-100">
+
+                <router-outlet class="row"></router-outlet>
+            </div>
+            <button class="drawer-button d-flex justify-content-center align-items-center" (click)="openDrawer()">
+                <i class="fas fa-angle-right" *ngIf="showDrawer == true"></i>
+                <i class="fas fa-angle-left" *ngIf="showDrawer == false"></i>
+            </button>
+        </div>
+        <div class="animate-drawer" [ngClass]="showDrawer == true ? 'col-2 bg-secondary h-100 ':'close'">
+            <div *ngIf="showDrawer == true">
+                <p>
+                    <a (click)="route(['tools'])">مدیریت تجهیزات</a>
+                </p>
+                <p>
+                    <a (click)="route(['users'])">مدیریت کاربران</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

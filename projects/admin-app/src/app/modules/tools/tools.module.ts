@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { ToolsRoutingModule } from './tools-routing.module';
 import { ToolComponent } from './components/tool/tool.component';
-import { ToggleComponent } from './components/toggle/toggle.component';
 import { ToolsComponent } from './components/tools/tools.component';
 
 
@@ -11,11 +10,10 @@ import { ToolsComponent } from './components/tools/tools.component';
   declarations: [
     ToolsComponent,
     ToolComponent,
-    ToggleComponent
   ],
   imports: [
     CommonModule,
-    ToolsRoutingModule
+    ToolsRoutingModule,
   ]
 })
 export class ToolsModule { }
